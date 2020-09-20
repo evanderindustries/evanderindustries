@@ -1,5 +1,5 @@
 .about-container {
-  padding: 1rem 3rem 0;
+  padding: 3rem 3rem 0;
   max-width: 1600px;
   margin: 0 auto;
 
@@ -10,7 +10,7 @@
   .row {
     padding-bottom: 8rem;
     @include small-xs {
-      padding-bottom: 2rem;
+      padding-bottom: 0rem;
     }
 
     .row-content {
@@ -22,46 +22,51 @@
         padding-right: 0;
       }
 
-      .cjs-link {
-        color: #2C7EA1;
-        font-weight: bold;
-
-        &:hover{
-          color: darken(#2C7EA1, 10%);
-          transition: all 0.3s ease-in-out;
-        }
+      h4 {
+        text-align: justify;
       }
+
+      // .cjs-link {
+      //   color: #2C7EA1;
+      //   font-weight: bold;
+
+      //   &:hover{
+      //     color: darken(#2C7EA1, 10%);
+      //     transition: all 0.3s ease-in-out;
+      //   }
+      // }
     }
   }
 
-  .about-cjs {
-    .about-doc {
-      background: #2C7EA1;
-      margin-right: 20px;
-    }
+  // .about-cjs {
+  //   .about-doc {
+  //     background: #2C7EA1;
+  //     margin-right: 20px;
+  //   }
   
-    .about-dev {
-      background-color: #fff;
-      color: #2C7EA1;
-      border: 1px solid #2C7EA1;
-    }
-  }
+  //   .about-dev {
+  //     background-color: #fff;
+  //     color: #2C7EA1;
+  //     border: 1px solid #2C7EA1;
+  //   }
+  // }
 
-  .about-net {
-    background-color: #29A38A;
-  }
+  // .about-net {
+  //   background-color: #29A38A;
+  // }
 
-  .about-gb {
-    background-color: #283341;
-  }
+  // .about-gb {
+  //   background-color: #283341;
+  // }
 
-  .about-blog {
-    background-color: #254E81;
-    width: 140px;
-  }
+  // .about-blog {
+  //   background-color: #254E81;
+  //   width: 140px;
+  // }
 
   .about-image {
     img {
+      width: 50%;
       @include small-xs {
        display: none;
       }

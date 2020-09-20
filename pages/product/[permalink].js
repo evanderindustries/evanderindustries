@@ -117,7 +117,7 @@ class Product extends Component {
       </div>
       <ClientReview />
       <SuggestedProducts />
-      <ExploreBanner />
+      {/*<ExploreBanner />*/}
       <SocialMedia />
       <Footer />
     </Root>

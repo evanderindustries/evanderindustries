@@ -8,13 +8,25 @@ class CategoryBanner extends Component {
     const { categories } = this.props;
 
     return (
-      <div className="bg-brand300 py-5 collection-banner">
+      <div className="bg-gray100 py-5 collection-banner">
         <div className="custom-container py-5">
           <p className="font-size-display2 my-3 py-5 text-center font-family-secondary">
-            Categories
+            Things I Make
           </p>
 
           <div className="row">
+          <div className="col-12 col-md-4 collection-item mb-5">
+            <Link href="/">
+              <a className="align-items-center font-color-black flex-column cursor-pointer mb-5">
+                <div>
+                  <div className="mb-4 w-100 collection-item-image" style={{
+                    background: `url("/images/collection/3.png") center center/cover`
+                  }}></div>
+                  <p className="mb-2 font-size-heading text-center">Apparel</p>
+                </div>
+              </a>
+            </Link>
+          </div>
             {categories.map((item, index) => (
               <div
               key={`category-item-${index}`}
@@ -33,7 +45,7 @@ class CategoryBanner extends Component {
                     <p className="mb-2 font-size-heading text-center" key={item.id}>
                     {item.name}
                     </p>
-                    <p className="text-center">{item.count} products</p>
+                    {/*<p className="text-center">{item.count} products</p>*/}
                     </div>
                   </a>
                 </Link>

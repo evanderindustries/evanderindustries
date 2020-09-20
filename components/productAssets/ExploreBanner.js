@@ -43,7 +43,7 @@ export default class ExploreBanner extends React.Component {
   render() {
     return (
       <div className="py-5 mb-5 explore-banner">
-        <div className="bg-brand300 position-relative py-md-5">
+        <div className="bg-brand500 position-relative py-md-5">
           {/* Image Absolute */}
           <div className="position-md-absolute left-0 bottom-0 right-0">
             <div className="custom-container px-0">

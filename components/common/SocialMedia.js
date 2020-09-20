@@ -6,20 +6,20 @@ const imagesInfo = [
     translateRatio: -50
   },
   {
-    image: '/images/insta/2.jpg',
+    image: '/images/insta/2.png',
     translateRatio: 30
   },
   {
-    image: '/images/insta/3.jpg',
-    translateRatio: 0
+    image: '/images/insta/3.png',
+    translateRatio: 50
   },
   {
-    image: '/images/insta/4.jpg',
-    translateRatio: -20
+    image: '/images/insta/4.png',
+    translateRatio: -200
   },
   {
-    image: '/images/insta/5.jpg',
-    translateRatio: -80
+    image: '/images/insta/5.png',
+    translateRatio: 180
   }
 ];
 
@@ -72,17 +72,17 @@ export default class SocialMedia extends React.Component {
           <div className="row footer-follow--header">
             <div className="px-3 footer-follow--title">
               <p
-                className="font-size-display1 mb-3"
+                className="font-size-display2 mb-3 font-family-secondary"
                 style={{ maxWidth: '26rem' }}
               >
-                Follow us on Instagram for more updates
+                Follow me on Instagram
               </p>
-              <div className="d-flex">
+              <div className="d-flex instagram-link-z-index">
                 <a
-                  href="/about"
-                  className="d-flex py-3 align-items-center font-color-black borderbottom border-color-black"
+                  href="https://www.instagram.com/evander_industries/"
+                  className="d-flex py-1 align-items-center font-color-black borderbottom border-color-gray500"
                 >
-                  <p className="mr-3">Follow us</p>
+                  <p className="mr-3">Follow me</p>
                   <img src="/icon/arrow-long-right.svg" alt="Arrow icon"/>
                 </a>
               </div>

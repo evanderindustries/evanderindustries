@@ -45,11 +45,13 @@ class Collections extends Component {
       {categories.map(category => (
       <div key={category.id} className="custom-container">
         <div className="row">
-          <div className="col-2 d-none d-lg-block position-relative">
-            <p className="font-size-title font-weight-medium mb-3">
-              {category.name}
-            </p>
+          <div className="col-2 d-none d-lg-block position-relative cursor-pointer">
             <Link href={`/collection#${category.slug}`}>
+              <p className="font-size-title font-weight-medium mb-3">
+                {category.name}
+              </p>
+            </Link>
+            {/*<Link href={`/collection#${category.slug}`}>
               <div className="mb-5">
                 <div className="d-flex">
                   <p className="mb-2 position-relative cursor-pointer">
@@ -64,6 +66,7 @@ class Collections extends Component {
                 </div>
               </div>
             </Link>
+          */}
           </div>
         </div>
       </div>
@@ -96,7 +99,8 @@ class Collections extends Component {
       <div className="collection">
         {categories.map(category => (
           <div key={category.id}>
-              <p className="font-size-title font-weight-medium mb-4" id={category.slug}>
+              <span className="anchor-offset" id={category.slug}></span>
+              <p className="font-size-title font-weight-medium mb-4">
                 {category.name}
               </p>
               <div className="row mb-5 collection-1">
@@ -117,7 +121,7 @@ class Collections extends Component {
                         <p className="mb-2 font-color-medium">
                           {product.description.replace(reg, '')}
                         </p>
-                        <p className="font-size-subheader font-weight-medium pb-2 borderbottom border-color-black">
+                        <p className="font-size-subheader font-weight-medium pb-2">
                           {product.price.formatted_with_symbol}
                         </p>
                       </a>

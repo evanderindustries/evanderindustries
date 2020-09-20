@@ -12,7 +12,8 @@ header {
   filter: invert(1);
 
   &.invert {
-    background-color: #fff;
+    //background-color: #fff;
+    background-color: #ff0000; //$brand-900
     border-color: #000;
     filter: none;
     transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;

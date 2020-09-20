@@ -1,4 +1,12 @@
 .footer-follow {
+
+  //MPT
+  overflow: hidden;
+  .instagram-link-z-index {
+    position: relative;
+    z-index: 2;
+  }
+
   .footer-follow--header .footer-follow--title {
     @include sm {
       margin-bottom: -1.5rem;
@@ -19,6 +27,7 @@
     }
 
     .follow-images:nth-child(1) {
+      transform: rotate(20deg);
       padding-top: 112px;
 
       @include sm {
@@ -27,11 +36,13 @@
       }
     }
     .follow-images:nth-child(2) {
+      transform: rotate(-8deg);
       @include sm {
         padding-bottom: 40px;
       }
     }
     .follow-images:nth-child(3) {
+      transform: rotate(2deg);
       padding-bottom: 114px;
       display: none;
 
@@ -40,6 +51,7 @@
       }
     }
     .follow-images:nth-child(4) {
+      transform: rotate(8deg);
       display: none;
 
       @include lg {
@@ -47,6 +59,7 @@
       }
     }
     .follow-images:nth-child(5) {
+      transform: rotate(-8deg);
       padding-bottom: 154px;
 
       display: none;

@@ -22,11 +22,13 @@ class MyDocument extends Document {
             crossOrigin="anonymous"
           />
           <link
-            href="https://fonts.googleapis.com/css?family=Recursive:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=block"
+            //href="https://fonts.googleapis.com/css?family=Recursive:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=block"
+            href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=block"
             rel="stylesheet"
           />
           <link
-            href="https://fonts.googleapis.com/css?family=Permanent+Marker:400,700,900&display=block"
+            //href="https://fonts.googleapis.com/css?family=Permanent+Marker:400,700,900&display=block"
+            href="https://fonts.googleapis.com/css?family=Concert+One&display=block"
             rel="stylesheet"
           />
           <script src="https://unpkg.com/react-id-swiper@2.4.0/lib/react-id-swiper.min.js"></script>
@@ -34,14 +36,14 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css"
           />
-          <meta property="og:title" content="Commerce.js | Demo storefront" />
-          <meta property="og:image" content="https://cdn.chec.io/email/assets/marketing/demo-preview.png" />
-          <meta property="og:description" content="A custom, open source demo storefront built with Next.js and Commerce.js. Take a look!" />
-          <meta property="og:url" content="https://commercejs-demo-store.netlify.app" />
-          <meta property="twitter:title" content="Commerce.js | Demo storefront" />
-          <meta name="twitter:creator" content="@commercejs" />
-          <meta property="twitter:image" content="https://cdn.chec.io/email/assets/marketing/demo-preview.png" />
-          <meta property="twitter:description" content="A custom, open source demo storefront built with Next.js and Commerce.js. Take a look!" />
+          <meta property="og:title" content="Evander Industries | Fine Art for a Good Cause" />
+          <meta property="og:image" content="https://evanderindustries.com/images/marketing_logo.png" />
+          <meta property="og:description" content="A storefront for Evander Industries." />
+          <meta property="og:url" content="https://evanderindustries.com" />
+          <meta property="twitter:title" content="Evander Industries | Fine Art for a Good Cause" />
+          <meta name="twitter:creator" content="@evander_industries" />
+          <meta property="twitter:image" content="https://evanderindustries.com/images/marketing_logo.png" />
+          <meta property="twitter:description" content="A storefront for Evander Industries." />
           <meta name="twitter:card" content="summary_large_image" />
         </Head>
         <body>
