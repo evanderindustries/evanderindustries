@@ -42,6 +42,17 @@ class Collections extends Component {
 
     return (
       <>
+      <div className="custom-container">
+        <div className="row">
+          <div className="col-2 d-none d-lg-block position-relative cursor-pointer">
+            <Link href="/">
+              <p className="font-size-title font-weight-medium mb-3">
+                Apparel
+              </p>
+            </Link>
+          </div>
+        </div>
+      </div>
       {categories.map(category => (
       <div key={category.id} className="custom-container">
         <div className="row">

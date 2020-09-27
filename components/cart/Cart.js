@@ -142,7 +142,7 @@ class Cart extends Component {
                   </div>
                 </>
               ) : (
-                <div className="d-flex align-items-center justify-content-center bg-brand300 flex-grow-1 p-4 p-md-5 flex-column">
+                <div className="d-flex align-items-center justify-content-center bg-brand500 flex-grow-1 p-4 p-md-5 flex-column">
                   <div className="position-relative cursor-pointer mb-3">
                     <img src="/icon/cart.svg" className="w-32" />
                     <div

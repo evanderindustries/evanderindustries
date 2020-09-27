@@ -1,5 +1,6 @@
 import React from 'react';
 import Root from '../components/common/Root';
+import SocialMedia from '../components/common/SocialMedia';
 import Footer from '../components/common/Footer';
 
 const About = () => (
@@ -55,6 +56,7 @@ const About = () => (
         </div>
       </div>
     </div>
+    <SocialMedia />
     <Footer />
   </Root>
 );
