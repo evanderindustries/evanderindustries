@@ -34,15 +34,19 @@ const Footer = () => (
           <p className="font-family-secondary font-size-display1 mb-3">
             Newsletter
           </p>
-          <div className="position-relative">
-            <input
-              className="border-none h-48 w-100"
-              placeholder="email address"
-            />
-            {/*<button className="bg-transparent position-absolute right-0 top-50 translateY--50 pr-2 h-48">
-              <img src="/icon/arrow-long-right.svg" className="w-24" alt="Arrow icon"/>
-            </button>*/}
-          </div>
+          <EmailForm />
+{/*          <form className="position-relative email-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <div hidden aria-hidden="true">
+              <label>
+                Don’t fill this out if you're human: 
+                <input name="bot-field" />
+              </label>
+            </div>
+            <div>
+              <input className="border-none h-48 w-100" placeholder="email address" type="email" name="email" id="email" required />
+              <button className="bg-transparent position-absolute right-0 top-50 translateY--50 p-1 px-3 mr-2 border border-color-gray500 submit-btn" type="submit">Submit</button>
+            </div>
+          </form>*/}
         </div>
       </div>
     </div>
@@ -90,7 +94,7 @@ const Footer = () => (
             >
               &copy; 2020 Evander Industries
             </a>*/}
-            &copy; 2020 Evander Industries
+            &copy; { new Date().getFullYear() } Evander Industries
           </div>
         </div>
       </div>
@@ -99,3 +103,75 @@ const Footer = () => (
 );
 
 export default Footer;
+
+// const processForm = form => {
+//   const data = new FormData(form)
+//   data.append('form-name', 'newsletter');
+//   fetch('/', {
+//     method: 'POST',
+//     body: data,
+//   })
+//   .then(() => {
+//     form.innerHTML = `<div class="form--success">Almost there! Check your inbox for a confirmation e-mail.</div>`;
+//   })
+//   .catch(error => {
+//     form.innerHTML = `<div class="form--error">Error: ${error}</div>`;
+//   })
+// }
+
+// const emailForm = document.querySelector('.email-form')
+// if (emailForm) {
+//   emailForm.addEventListener('submit', e => {
+//     e.preventDefault();
+//     processForm(emailForm);
+//   })
+// }
+
+class EmailForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    const data = new FormData(event.target)
+    data.append('form-name', 'newsletter');
+    fetch('/', {
+      method: 'POST',
+      body: data,
+    })
+    .then(() => {
+      document.querySelector('#newsletter-form').innerHTML = `<div class="form--success">Almost there! Check your inbox for a confirmation e-mail.</div>`;
+      //this.setState({value: `<div class="form--success">Almost there! Check your inbox for a confirmation e-mail.</div>`});
+    })
+    .catch(error => {
+      document.querySelector('#newsletter-form').innerHTML = `<div class="form--error">Error: ${error}</div>`;
+      //this.setState({value: `Error: ${error}`});
+    })
+    //event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form className="position-relative" id="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
+        <div hidden aria-hidden="true">
+          <label>
+            Don’t fill this out if you're human: 
+            <input name="bot-field" />
+          </label>
+        </div>
+        <div>
+          <input className="border-none h-48 w-100" value={this.state.value} onChange={this.handleChange} placeholder="email address" type="email" name="email" id="email" required />
+          <button className="bg-transparent position-absolute right-0 top-50 translateY--50 p-1 px-3 mr-2 border border-color-gray500 submit-btn" type="submit">Submit</button>
+        </div>
+      </form>
+    );
+  }
+}
