@@ -143,7 +143,10 @@ class EmailForm extends React.Component {
   handleSubmit(event) {
     const data = new FormData(event.target)
     data.append('form-name', 'newsletter');
-    console.log(`Data: ${JSON.stringify(data)}`)
+    console.log('Data: ')
+    for (var value of data.values()) {
+       console.log(value); 
+    }
     fetch('/', {
       method: 'POST',
       body: data,
