@@ -152,7 +152,7 @@ class EmailForm extends React.Component {
       body: data,
     })
     .then(data => {
-      console.log('This is the data:', data)
+      console.log('This is the data:', data);
       document.querySelector('#newsletter-form').innerHTML = `<div class="form--success">Almost there! Check your inbox for a confirmation e-mail.</div>`;
     })
     // .then(() => {
