@@ -14,7 +14,9 @@ exports.handler = async event => {
   })
     .then(response => response.json())
     .then(response => {
-      console.log(`Response: ${response}`)
+      if (response.includes('already subscribed')) {
+        console.log('ALREADY SUBSCRIBED!')
+      }
     })
     .then(data => {
       console.log(`Submitted to Buttondown: ${data}`)
