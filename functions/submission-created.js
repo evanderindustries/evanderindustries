@@ -16,8 +16,7 @@ exports.handler = async event => {
     .then(data => {
       console.log('Submitted to Buttondown:', data);
       if (data[0].includes('already subscribed')) {
-        console.log('ALREADY SUBSCRIBED');
-        return { statusCode: 201, body: 'Subscribed' }
+        console.log('Already subscribed.');
       }
     })
     .catch(error => ({ statusCode: 422, body: String(error) }))
