@@ -143,21 +143,25 @@ class EmailForm extends React.Component {
   handleSubmit(event) {
     const data = new FormData(event.target)
     data.append('form-name', 'newsletter');
-    console.log('Data: ')
-    for (var value of data.values()) {
-       console.log(value); 
-    }
+    // console.log('Data: ')
+    // for (var value of data.values()) {
+    //    console.log(value); 
+    // }
     fetch('/', {
       method: 'POST',
       body: data,
     })
-    .then(() => {
-      // if (event.target.value.includes('already subscribed')) {
-      //   alert('ALREADY SUBSCRIBED');
-      // }
+    .then(data => {
+      console.log('This is the data:', data)
       document.querySelector('#newsletter-form').innerHTML = `<div class="form--success">Almost there! Check your inbox for a confirmation e-mail.</div>`;
-      //this.setState({value: `<div class="form--success">Almost there! Check your inbox for a confirmation e-mail.</div>`});
     })
+    // .then(() => {
+    //   // if (event.target.value.includes('already subscribed')) {
+    //   //   alert('ALREADY SUBSCRIBED');
+    //   // }
+    //   document.querySelector('#newsletter-form').innerHTML = `<div class="form--success">Almost there! Check your inbox for a confirmation e-mail.</div>`;
+    //   //this.setState({value: `<div class="form--success">Almost there! Check your inbox for a confirmation e-mail.</div>`});
+    // })
     .catch(error => {
       document.querySelector('#newsletter-form').innerHTML = `<div class="form--error">Error: ${error}</div>`;
       //this.setState({value: `Error: ${error}`});
