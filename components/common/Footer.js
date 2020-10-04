@@ -147,6 +147,7 @@ class EmailForm extends React.Component {
       method: 'POST',
       body: data,
     })
+    alert(data)
     .then(() => {
       // if (event.target.value.includes('already subscribed')) {
       //   alert('ALREADY SUBSCRIBED');

@@ -13,11 +13,6 @@ exports.handler = async event => {
     body: JSON.stringify({ email }),
   })
     .then(response => response.json())
-    .then(response => {
-      if (response.includes('already subscribed')) {
-        console.log('ALREADY SUBSCRIBED!')
-      }
-    })
     .then(data => {
       console.log(`Submitted to Buttondown: ${data}`)
     })
