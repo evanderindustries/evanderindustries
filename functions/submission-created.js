@@ -14,7 +14,11 @@ exports.handler = async event => {
   })
     .then(response => response.json())
     .then(data => {
-      console.log('Submitted to Buttondown:', data)
+      console.log('Submitted to Buttondown:', data);
+      if (data.includes('already subscribed')) {
+        console.log('ALREADY SUBSCRIBED');
+        return 'TESTO'
+      }
     })
     .catch(error => ({ statusCode: 422, body: String(error) }))
 }
