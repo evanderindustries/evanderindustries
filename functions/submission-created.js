@@ -13,8 +13,11 @@ exports.handler = async event => {
     body: JSON.stringify({ email }),
   })
     .then(response => response.json())
+    .then(response => {
+      console.log(`Response: ${response}`)
+    })
     .then(data => {
-      console.log(`Submitted to Buttondown:\n ${data}`)
+      console.log(`Submitted to Buttondown: ${data}`)
     })
     .catch(error => ({ statusCode: 422, body: String(error) }))
 }
