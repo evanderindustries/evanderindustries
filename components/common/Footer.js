@@ -155,7 +155,7 @@ class EmailForm extends React.Component {
       document.querySelector('#newsletter-form').innerHTML = `<div class="form--error">Error: ${error}</div>`;
       //this.setState({value: `Error: ${error}`});
     })
-    //event.preventDefault();
+    event.preventDefault();
   }
 
   render() {
