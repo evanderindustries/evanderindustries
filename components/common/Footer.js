@@ -147,12 +147,12 @@ class EmailForm extends React.Component {
       method: 'POST',
       body: data,
     })
-    alert(data)
     .then(() => {
       // if (event.target.value.includes('already subscribed')) {
       //   alert('ALREADY SUBSCRIBED');
       // }
-      document.querySelector('#newsletter-form').innerHTML = `<div class="form--success">Almost there! Check your inbox for a confirmation e-mail.</div>`;
+      //document.querySelector('#newsletter-form').innerHTML = `<div class="form--success">Almost there! Check your inbox for a confirmation e-mail.</div>`;
+      document.querySelector('#newsletter-form').innerHTML = `<div class="form--success">Test: ${JSON.stringify(data)}</div>`;
       //this.setState({value: `<div class="form--success">Almost there! Check your inbox for a confirmation e-mail.</div>`});
     })
     .catch(error => {
