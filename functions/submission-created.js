@@ -22,6 +22,7 @@ exports.handler = async event => {
           body: JSON.stringify({ message: 'Already Subscribed!'})
         }
         return msg
+        document.querySelector('#newsletter-form').innerHTML = `<div class="form--success">This message sent from lambda function.</div>`;
       }
     })
     .catch(error => ({ statusCode: 422, body: String(error) }))
