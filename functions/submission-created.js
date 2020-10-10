@@ -13,17 +13,21 @@ exports.handler = async event => {
     body: JSON.stringify({ email }),
   })
     .then(response => response.json())
-    .then(data => {
-      console.log('Submitted to Buttondown:', data);
-      if (data[0].includes('already subscribed')) {
-        console.log('Already subscribed.');
-        const msg = {
-          statusCode: 200,
-          body: JSON.stringify({ message: 'Already Subscribed!'})
-        }
-        return msg
-        document.querySelector('#newsletter-form').innerHTML = `<div class="form--success">This message sent from lambda function.</div>`;
-      }
-    })
+    // .then(data => {
+    //   console.log('Submitted to Buttondown:', data);
+    //   if (data[0].includes('already subscribed')) {
+    //     console.log('Already subscribed.');
+    //     const msg = {
+    //       statusCode: 200,
+    //       headers: { 'content-type': 'application/json' },
+    //       body: JSON.stringify({ message: 'This user is already Subscribed!'})
+    //     }
+    //     return msg
+    //   }
+    // })
+    .then(data => ({
+            statusCode: 200,
+            body: JSON.stringify({ message: 'This user is already Subscribed!'})
+      }))
     .catch(error => ({ statusCode: 422, body: String(error) }))
 }
