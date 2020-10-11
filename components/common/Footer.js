@@ -141,7 +141,7 @@ class EmailForm extends React.Component {
   }
 
   handleSubmit(event) {
-    const data = new FormData(event.target)
+    const data = new FormData(event.target);
     data.append('form-name', 'newsletter');
     // console.log('Data: ')
     // for (var value of data.values()) {
@@ -151,13 +151,23 @@ class EmailForm extends React.Component {
       method: 'POST',
       body: data,
     })
+    .then(response => response.json())
     .then(data => {
-      console.log('This is the data:', data);
-      document.querySelector('#newsletter-form').innerHTML = `<div class="form--success">Almost there! Check your inbox for a confirmation e-mail.</div>`;
+      //console.log('This is the data:', data);
+      let msg
+      if (data.submitStatus === 'subscribed') {
+        msg = 'This user is already subscribed!'
+      } else if (data.submitStatus === 'spammy') {
+        msg = 'This address is considered spammy!'
+      } else if (data.submitStatus === 'unsubscribed') {
+        msg = 'This address is unsubscribed!'
+      } else {
+        msg = 'Almost there! Check your inbox for a confirmation e-mail.'
+      }
+      document.querySelector('#newsletter-form').innerHTML = `<div class="form--success">${msg}</div>`;
     })
     .catch(error => {
       document.querySelector('#newsletter-form').innerHTML = `<div class="form--error">Error: ${error}</div>`;
-      //this.setState({value: `Error: ${error}`});
     })
     event.preventDefault();
   }

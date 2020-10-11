@@ -14,15 +14,24 @@ exports.handler = async event => {
   })
     .then(response => response.json())
     .then(data => {
+      data = JSON.stringify(data);
       console.log('Submitted to Buttondown:', data);
-      if (data[0].includes('already subscribed')) {
+      let subS
+      if (data.includes('already subscribed')) {
         console.log('Already subscribed.');
-        // const msg = {
-        //   statusCode: 200,
-        //   headers: { 'content-type': 'application/json' },
-        //   body: JSON.stringify({ message: 'This user is already Subscribed!'})
-        // }
-        // return msg
+        subS = 'subscribed'
+      } else if (data.includes('spammy')) {
+        console.log('Address considered spam.');
+        subS = 'spammy'
+      } else if (data.includes('unsubscribed')) {
+        console.log('Address unsubscribed.');
+        subS = 'unsubscribed'
+      } else {
+        console.log('OK.');
+      }
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ submitStatus: subS })
       }
     })
     .catch(error => ({ statusCode: 422, body: String(error) }))
