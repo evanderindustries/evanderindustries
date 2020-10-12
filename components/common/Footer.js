@@ -141,7 +141,6 @@ class EmailForm extends React.Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
     const form = document.querySelector('#newsletter-form');
     const data = new FormData(event.target);
     data.append('form-name', 'newsletter');
@@ -153,23 +152,32 @@ class EmailForm extends React.Component {
       method: 'POST',
       body: data,
     })
-    .then(response => response.json())
-    //.then((function(e){return e.json()}))
-    // .then(response => response.text())
-    // .then(text => console.log(`This is the response: ${text}`))
-    .then(data => {
-      console.log('This is the data:', data);
-      let msg
-      if (data.submitStatus === 'subscribed') {
-        msg = 'This user is already subscribed!'
-      } else if (data.submitStatus === 'spammy') {
-        msg = 'This address is considered spammy!'
-      } else if (data.submitStatus === 'unsubscribed') {
-        msg = 'This address is unsubscribed!'
-      } else {
-        msg = 'Almost there! Check your inbox for a confirmation e-mail.'
-      }
-      form.innerHTML = `<div class="form--success">${msg}</div>`;
+    // .then(response => response.json())
+    // //.then((function(e){return e.json()}))
+    // // .then(response => response.text())
+    // // .then(text => console.log(`This is the response: ${text}`))
+    // .then(data => {
+    //   console.log('This is the data:', data);
+    //   let msg
+    //   if (data.submitStatus === 'subscribed') {
+    //     msg = 'This user is already subscribed!'
+    //   } else if (data.submitStatus === 'spammy') {
+    //     msg = 'This address is considered spammy!'
+    //   } else if (data.submitStatus === 'unsubscribed') {
+    //     msg = 'This address is unsubscribed!'
+    //   } else {
+    //     msg = 'Almost there! Check your inbox for a confirmation e-mail.'
+    //   }
+    //   form.innerHTML = `<div class="form--success">${msg}</div>`;
+    // })
+    .then((function(e){
+      const testData = e.json();
+      console.log('This is the data:', testData);
+      return testData;
+      //return e.json()
+    }))
+    .then(result => {
+      console.log('This is the result:', result);
     })
     // .then(() => {
     //   form.innerHTML = `<div class="form--success">${}</div>`;
@@ -177,7 +185,7 @@ class EmailForm extends React.Component {
     .catch(error => {
       form.innerHTML = `<div class="form--error">Error: ${error}</div>`;
     })
-    //event.preventDefault();
+    event.preventDefault();
   }
 
   render() {
