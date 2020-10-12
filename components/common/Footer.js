@@ -152,7 +152,7 @@ class EmailForm extends React.Component {
     //   method: 'POST',
     //   body: data,
     // })
-    fetch(event.target.getAttribute('action'), {
+    fetch(form.getAttribute('action'), {
       method: 'POST',
       body: data,
       //body: new URLSearchParams(data).toString()
