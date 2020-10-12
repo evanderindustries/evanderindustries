@@ -152,10 +152,10 @@ class EmailForm extends React.Component {
       method: 'POST',
       body: data,
     })
-    //.then(response => response.json())
+    .then(response => response.json())
     //.then((function(e){return e.json()}))
-    .then(response => response.text())
-    .then(text => console.log(`This is the response: ${text}`))
+    // .then(response => response.text())
+    // .then(text => console.log(`This is the response: ${text}`))
     .then(data => {
       console.log('This is the data:', data);
       let msg
@@ -181,7 +181,7 @@ class EmailForm extends React.Component {
 
   render() {
     return (
-      <form className="position-relative" id="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
+      <form action="" className="position-relative" id="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
         <div hidden aria-hidden="true">
           <label>
             Don’t fill this out if you're human: 
