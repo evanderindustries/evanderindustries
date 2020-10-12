@@ -155,6 +155,7 @@ class EmailForm extends React.Component {
     fetch(event.target.getAttribute('action'), {
       method: 'POST',
       body: data,
+      //body: new URLSearchParams(data).toString()
     })
     // .then(response => response.json())
     // //.then((function(e){return e.json()}))
@@ -194,7 +195,7 @@ class EmailForm extends React.Component {
 
   render() {
     return (
-      <form action="/" className="position-relative" id="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
+      <form action="#" className="position-relative" id="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
         <div hidden aria-hidden="true">
           <label>
             Don’t fill this out if you're human: 
