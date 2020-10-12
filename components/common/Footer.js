@@ -153,8 +153,8 @@ class EmailForm extends React.Component {
     })
     //.then(response => response.json())
     .then(response => {
-      console.log('This is the data:', response);
-      response.json()
+      console.log('This is the response:', response);
+      //response.json()
     })
     .then(data => {
       console.log('This is the data:', data);
