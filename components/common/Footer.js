@@ -141,6 +141,7 @@ class EmailForm extends React.Component {
   }
 
   handleSubmit(event) {
+    const form = document.querySelector('#newsletter-form');
     const data = new FormData(event.target);
     data.append('form-name', 'newsletter');
     // console.log('Data: ')
@@ -151,11 +152,7 @@ class EmailForm extends React.Component {
       method: 'POST',
       body: data,
     })
-    //.then(response => response.json())
-    .then(response => {
-      console.log('This is the response:', response);
-      //response.json()
-    })
+    .then(response => response.json())
     .then(data => {
       console.log('This is the data:', data);
       let msg
@@ -168,10 +165,13 @@ class EmailForm extends React.Component {
       } else {
         msg = 'Almost there! Check your inbox for a confirmation e-mail.'
       }
-      document.querySelector('#newsletter-form').innerHTML = `<div class="form--success">${msg}</div>`;
+      form.innerHTML = `<div class="form--success">${msg}</div>`;
     })
+    // .then(() => {
+    //   form.innerHTML = `<div class="form--success">${}</div>`;
+    // })
     .catch(error => {
-      document.querySelector('#newsletter-form').innerHTML = `<div class="form--error">Error: ${error}</div>`;
+      form.innerHTML = `<div class="form--error">Error: ${error}</div>`;
     })
     event.preventDefault();
   }
