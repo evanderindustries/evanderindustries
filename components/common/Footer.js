@@ -141,8 +141,8 @@ class EmailForm extends React.Component {
   }
 
   handleSubmit(event) {
-    const form = document.querySelector('#newsletter-form');
-    const data = new FormData(event.target);
+    const form = event.target;
+    const data = new FormData(form);
     data.append('form-name', 'newsletter');
 
     // console.log('Data: ')
@@ -159,9 +159,8 @@ class EmailForm extends React.Component {
       //body: new URLSearchParams(data).toString()
     })
     // .then(response => response.json())
-    // //.then((function(e){return e.json()}))
-    // // .then(response => response.text())
-    // // .then(text => console.log(`This is the response: ${text}`))
+    .then(response => response.text())
+    .then(text => console.log(`This is the response: ${text}`))
     // .then(data => {
     //   console.log('This is the data:', data);
     //   let msg
@@ -176,15 +175,14 @@ class EmailForm extends React.Component {
     //   }
     //   form.innerHTML = `<div class="form--success">${msg}</div>`;
     // })
-    .then((function(e){
-      const testData = e.json();
-      console.log('This is the data:', testData);
-      return testData;
-      //return e.json()
-    }))
-    .then(result => {
-      console.log('This is the result:', result);
-    })
+    // .then((function(e){
+    //   const testData = e.json();
+    //   console.log('This is the data:', testData);
+    //   return testData;
+    // }))
+    // .then(result => {
+    //   console.log('This is the result:', result);
+    // })
     // .then(() => {
     //   form.innerHTML = `<div class="form--success">${}</div>`;
     // })
