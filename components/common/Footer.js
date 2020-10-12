@@ -153,7 +153,7 @@ class EmailForm extends React.Component {
     })
     .then(response => response.json())
     .then(data => {
-      //console.log('This is the data:', data);
+      console.log('This is the data:', data);
       let msg
       if (data.submitStatus === 'subscribed') {
         msg = 'This user is already subscribed!'
