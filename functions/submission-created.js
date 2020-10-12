@@ -34,8 +34,5 @@ exports.handler = async event => {
         body: JSON.stringify({ submitStatus: subS })
       }
     })
-    .catch(error => {
-      console.log(`Error: ${error}.`);
-      return { statusCode: 422, body: String(error) }
-      })
+    .catch(error => ({ statusCode: 422, body: String(error) }))
 }
