@@ -151,15 +151,18 @@ class EmailForm extends React.Component {
     // for (var value of data.values()) {
     //    console.log(value); 
     // }
-    fetch('/', {
-      method: 'POST',
-      body: data,
-    })
-    // fetch(form.getAttribute('action'), {
+    // fetch('/', {
     //   method: 'POST',
     //   body: data,
-    //   //body: new URLSearchParams(data).toString()
     // })
+    fetch('/', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      body: new URLSearchParams(data).toString()
+    })
     // .then(response => response.json())
     // .then(response => response.text())
     // .then(text => console.log(`This is the response: ${text}`))
