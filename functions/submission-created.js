@@ -27,11 +27,12 @@ exports.handler = async event => {
         console.log('Address unsubscribed.');
         subS = 'unsubscribed'
       } else {
+        subS = 'ok'
         console.log('OK.');
       }
       return {
         statusCode: 200,
-        body: JSON.stringify({ submitStatus: subS })
+        body: JSON.stringify({ submitStatus: subS }) || {}
       }
     })
     .catch(error => ({ statusCode: 422, body: String(error) }))
