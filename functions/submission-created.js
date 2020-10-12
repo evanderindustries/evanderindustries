@@ -16,7 +16,7 @@ exports.handler = async event => {
     .then(data => {
       data = JSON.stringify(data);
       console.log('Submitted to Buttondown:', data);
-      let subS
+      //let subS
       if (data.includes('already subscribed')) {
         console.log('Already subscribed.');
         subS = 'subscribed'
@@ -29,11 +29,10 @@ exports.handler = async event => {
       } else {
         console.log('OK.');
       }
-      return {
-        statusCode: 200,
-        //body: JSON.stringify({ submitStatus: subS })
-        body: JSON.stringify({ subS })
-      }
+      // return {
+      //   statusCode: 200,
+      //   body: JSON.stringify({ submitStatus: subS })
+      // }
     })
     .catch(error => ({ statusCode: 422, body: String(error) }))
 }
