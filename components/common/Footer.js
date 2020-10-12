@@ -82,6 +82,7 @@ const Footer = () => (
               href="https://entekadesign.com/"
               className="font-color-brand font-size-caption text-uppercase text-center"
               target="_blank"
+              rel="noreferrer"
             >
               Enteka Design
             </a>
@@ -141,6 +142,7 @@ class EmailForm extends React.Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
     const form = event.target;
     const data = new FormData(form);
     data.append('form-name', 'newsletter');
@@ -149,18 +151,18 @@ class EmailForm extends React.Component {
     // for (var value of data.values()) {
     //    console.log(value); 
     // }
-    // fetch('/', {
-    //   method: 'POST',
-    //   body: data,
-    // })
-    fetch(form.getAttribute('action'), {
+    fetch('/', {
       method: 'POST',
       body: data,
-      //body: new URLSearchParams(data).toString()
     })
+    // fetch(form.getAttribute('action'), {
+    //   method: 'POST',
+    //   body: data,
+    //   //body: new URLSearchParams(data).toString()
+    // })
     // .then(response => response.json())
-    .then(response => response.text())
-    .then(text => console.log(`This is the response: ${text}`))
+    // .then(response => response.text())
+    // .then(text => console.log(`This is the response: ${text}`))
     // .then(data => {
     //   console.log('This is the data:', data);
     //   let msg
@@ -175,26 +177,26 @@ class EmailForm extends React.Component {
     //   }
     //   form.innerHTML = `<div class="form--success">${msg}</div>`;
     // })
-    // .then((function(e){
-    //   const testData = e.json();
-    //   console.log('This is the data:', testData);
-    //   return testData;
-    // }))
-    // .then(result => {
-    //   console.log('This is the result:', result);
-    // })
+    .then((function(e){
+      const testData = e.json();
+      console.log('This is the data:', testData);
+      return testData;
+    }))
+    .then(result => {
+      console.log('This is the result:', result);
+    })
     // .then(() => {
     //   form.innerHTML = `<div class="form--success">${}</div>`;
     // })
     .catch(error => {
       form.innerHTML = `<div class="form--error">Error: ${error}</div>`;
     })
-    event.preventDefault();
+    // event.preventDefault();
   }
 
   render() {
     return (
-      <form action="/#" className="position-relative" id="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
+      <form className="position-relative" id="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
         <div hidden aria-hidden="true">
           <label>
             Don’t fill this out if you're human: 
