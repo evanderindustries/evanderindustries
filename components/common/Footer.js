@@ -148,7 +148,11 @@ class EmailForm extends React.Component {
     // for (var value of data.values()) {
     //    console.log(value); 
     // }
-    fetch('/', {
+    // fetch('/', {
+    //   method: 'POST',
+    //   body: data,
+    // })
+    fetch(event.target.getAttribute('action'), {
       method: 'POST',
       body: data,
     })
