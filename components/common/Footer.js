@@ -141,6 +141,7 @@ class EmailForm extends React.Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
     const form = document.querySelector('#newsletter-form');
     const data = new FormData(event.target);
     data.append('form-name', 'newsletter');
@@ -176,12 +177,12 @@ class EmailForm extends React.Component {
     .catch(error => {
       form.innerHTML = `<div class="form--error">Error: ${error}</div>`;
     })
-    event.preventDefault();
+    //event.preventDefault();
   }
 
   render() {
     return (
-      <form action="/" className="position-relative" id="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
+      <form className="position-relative" id="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
         <div hidden aria-hidden="true">
           <label>
             Don’t fill this out if you're human: 
