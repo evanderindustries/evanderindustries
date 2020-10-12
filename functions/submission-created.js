@@ -31,7 +31,8 @@ exports.handler = async event => {
       }
       return {
         statusCode: 200,
-        body: JSON.stringify({ submitStatus: subS })
+        //body: JSON.stringify({ submitStatus: subS })
+        body: JSON.stringify({ subS })
       }
     })
     .catch(error => ({ statusCode: 422, body: String(error) }))
