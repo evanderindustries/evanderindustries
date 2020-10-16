@@ -12,28 +12,33 @@ exports.handler = async event => {
     },
     body: JSON.stringify({ email }),
   })
-    .then(response => response.json())
-    .then(data => {
-      data = JSON.stringify(data);
-      console.log('Submitted to Buttondown:', data);
-      let subS
-      if (data.includes('already subscribed')) {
-        console.log('Already subscribed.');
-        subS = 'subscribed'
-      } else if (data.includes('spammy')) {
-        console.log('Address considered spam.');
-        subS = 'spammy'
-      } else if (data.includes('unsubscribed')) {
-        console.log('Address unsubscribed.');
-        subS = 'unsubscribed'
-      } else {
-        subS = 'ok'
-        console.log('OK.');
-      }
-      return {
-        statusCode: 200,
-        body: JSON.stringify({ submitStatus: subS }),
-      }
-    })
-    .catch(error => ({ statusCode: 422, body: String(error) }))
+  .then((function(e){
+    const testData = e.json();
+    console.log('This is the testData:', testData);
+    return testData;
+  }))
+  //.then(response => response.json())
+  .then(data => {
+    data = JSON.stringify(data);
+    console.log('Submitted to Buttondown:', data);
+    let subS
+    if (data.includes('already subscribed')) {
+      console.log('Already subscribed.');
+      subS = 'subscribed'
+    } else if (data.includes('spammy')) {
+      console.log('Address considered spam.');
+      subS = 'spammy'
+    } else if (data.includes('unsubscribed')) {
+      console.log('Address unsubscribed.');
+      subS = 'unsubscribed'
+    } else {
+      subS = 'ok'
+      console.log('OK.');
+    }
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ submitStatus: subS }),
+    }
+  })
+  .catch(error => ({ statusCode: 422, body: String(error) }))
 }
