@@ -146,23 +146,42 @@ class EmailForm extends React.Component {
     const form = event.target;
     const data = new FormData(form);
     data.append('form-name', 'newsletter');
-
+    // const encodedData = new URLSearchParams(data).toString();
+    // console.log(`Data urlencoded: ${encodedData}`)
+    // const testElements = [...form.elements];
+    // console.log('Test elements: '); testElements.forEach(x => console.log(x));
+    // const newElements = testElements.filter((elem) => !!elem.value)
+    // console.log('New elements: '); newElements.forEach(x => console.log(x));
+    // const newData = newElements
+    //   .map(
+    //     (elem) =>
+    //       encodeURIComponent(elem.name) +
+    //       "=" +
+    //       encodeURIComponent(elem.value)
+    //   )
+    //   .join("&");
+    // console.log(`New data: ${newData}`);
+    // const finalData = newData + '&form-name=newsletter'
+    // console.log(`Final data: ${finalData}`);
+    // const newTestData = new URLSearchParams(finalData).toString();
     // console.log('Data: ')
     // for (var value of data.values()) {
     //    console.log(value); 
     // }
-    // fetch('/', {
-    //   method: 'POST',
-    //   body: data,
-    // })
     fetch('/', {
       method: 'POST',
-      headers: {
-        'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-      },
-      body: new URLSearchParams(data).toString()
+      body: data,
+      //body: finalData,
+      // body: newTestData,
     })
+    // fetch('/', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
+    //     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    //   },
+    //   body: new URLSearchParams(data).toString()
+    // })
     // .then(response => response.json())
     // .then(response => response.text())
     // .then(text => console.log(`This is the response: ${text}`))
@@ -199,7 +218,7 @@ class EmailForm extends React.Component {
 
   render() {
     return (
-      <form className="position-relative" id="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
+      <form className="position-relative" id="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={e => this.handleSubmit(e)}>
         <div hidden aria-hidden="true">
           <label>
             Don’t fill this out if you're human: 
