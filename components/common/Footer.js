@@ -126,7 +126,7 @@ class EmailForm extends React.Component {
 
     const form = new FormData(event.target);
     const data = new URLSearchParams(form).toString();
-    
+
     // const encodedData = new URLSearchParams(data).toString();
     // console.log(`Data urlencoded: ${encodedData}`)
     // const testElements = [...form.elements];
@@ -153,6 +153,10 @@ class EmailForm extends React.Component {
     fetch('/.netlify/functions/usebuttondown', {
       method: 'POST',
       body: data,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+
       //body: finalData,
       // body: newTestData,
     })
