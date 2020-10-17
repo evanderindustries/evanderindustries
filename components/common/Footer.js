@@ -149,7 +149,7 @@ class EmailForm extends React.Component {
     // for (var value of data.values()) {
     //    console.log(value); 
     // }
-    console.log('This is the data submitted:', data);
+    console.log('This is the payload submitted:', data.payload);
     fetch('/.netlify/functions/usebuttondown', {
       method: 'POST',
       body: data,

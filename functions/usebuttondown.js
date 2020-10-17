@@ -3,8 +3,13 @@ const fetch = require('node-fetch')
 const { EMAIL_TOKEN } = process.env
 exports.handler = async event => {
   console.log('Handler event received:', event)
-  console.log('Decoded body:', Buffer.from(event.body))
-  const email = JSON.parse(Buffer.from(event.body)).payload.email
+  let body = event.body;
+  if (event.isBase64Encoded) {
+    body = Buffer.from(event.body, 'base64').toString();
+    console.log('isBase64Encoded');
+  }
+  console.log('Decoded body:', body)
+  const email = JSON.parse(body).payload.email
   console.log(`Recieved a submission: ${email}`)
   return fetch('https://api.buttondown.email/v1/subscribers', {
     method: 'POST',
