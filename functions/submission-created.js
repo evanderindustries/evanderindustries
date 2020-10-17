@@ -14,7 +14,7 @@ exports.handler = async event => {
   })
   .then((function(e){
     const testData = e.json();
-    console.log('This is the testData:', testData);
+    //console.log('This is the testData:', testData);
     return testData;
   }))
   //.then(response => response.json())

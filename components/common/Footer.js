@@ -105,29 +105,6 @@ const Footer = () => (
 
 export default Footer;
 
-// const processForm = form => {
-//   const data = new FormData(form)
-//   data.append('form-name', 'newsletter');
-//   fetch('/', {
-//     method: 'POST',
-//     body: data,
-//   })
-//   .then(() => {
-//     form.innerHTML = `<div class="form--success">Almost there! Check your inbox for a confirmation e-mail.</div>`;
-//   })
-//   .catch(error => {
-//     form.innerHTML = `<div class="form--error">Error: ${error}</div>`;
-//   })
-// }
-
-// const emailForm = document.querySelector('.email-form')
-// if (emailForm) {
-//   emailForm.addEventListener('submit', e => {
-//     e.preventDefault();
-//     processForm(emailForm);
-//   })
-// }
-
 class EmailForm extends React.Component {
   constructor(props) {
     super(props);
@@ -168,7 +145,7 @@ class EmailForm extends React.Component {
     // for (var value of data.values()) {
     //    console.log(value); 
     // }
-    fetch('/', {
+    fetch('/.netlify/functions/usebuttondown', {
       method: 'POST',
       body: data,
       //body: finalData,
