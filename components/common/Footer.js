@@ -120,8 +120,8 @@ class EmailForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const form = event.target;
-    const data = new FormData(form);
+    const form = new FormData(event.target);
+    const data = new URLSearchParams(form).toString();
     data.append('form-name', 'newsletter');
     // const encodedData = new URLSearchParams(data).toString();
     // console.log(`Data urlencoded: ${encodedData}`)
