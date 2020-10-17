@@ -120,12 +120,12 @@ class EmailForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    // const form = event.target;
-    // const data = new FormData(form);
-    // data.append('form-name', 'newsletter');
+    const form = event.target;
+    const data = new FormData(form);
+    data.append('form-name', 'newsletter');
 
-    const form = new FormData(event.target);
-    const data = new URLSearchParams(form).toString();
+    // const form = new FormData(event.target);
+    // const data = new URLSearchParams(form).toString();
 
     // const encodedData = new URLSearchParams(data).toString();
     // console.log(`Data urlencoded: ${encodedData}`)
@@ -153,9 +153,9 @@ class EmailForm extends React.Component {
     fetch('/.netlify/functions/usebuttondown', {
       method: 'POST',
       body: data,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
+      // headers: {
+      //   'Content-Type': 'application/x-www-form-urlencoded'
+      // },
 
       //body: finalData,
       // body: newTestData,
