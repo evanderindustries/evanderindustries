@@ -125,7 +125,13 @@ class EmailForm extends React.Component {
     // data.append('form-name', 'newsletter');
 
     const form = new FormData(event.target);
-    const data = new URLSearchParams(form).toString();
+    var data = {};
+    form.forEach(function(value, key){
+      data[key] = value;
+    });
+    data = JSON.stringify(data);
+
+    //const data = new URLSearchParams(form).toString();
 
     // const encodedData = new URLSearchParams(data).toString();
     // console.log(`Data urlencoded: ${encodedData}`)
@@ -154,7 +160,7 @@ class EmailForm extends React.Component {
       method: 'POST',
       body: data,
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/json'
       },
 
       //body: finalData,
