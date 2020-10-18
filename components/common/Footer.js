@@ -121,35 +121,42 @@ class EmailForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const form = event.target;
-    const formData = new FormData(form);
-    formData.append('form-name', 'newsletter');
-    const obj = {}; formData.forEach((value, key) => {obj[key] = value});
-    const data = JSON.stringify(obj);
+    const formElements = [...form.elements];
+    const isValid = formElements.filter((elem) => elem.name === 'bot-field')[0].value === '';
 
-    //console.log('This is the data submitted:', data);
-    fetch('/.netlify/functions/usebuttondown', {
-      method: 'POST',
-      body: data,
-      headers: {
-        'Content-Type': 'application/json;charset=UTF-8',
-        'Accept': 'application/json;charset=UTF-8',
-      },
-    })
-    .then(response => response.json())
-    // .then(response => response.text())
-    // .then(text => console.log(`This is the response: ${text}`))
-    .then(data => {
-      console.log('This is the data received:', data);
-      form.innerHTML = `<div class="form--success">${data.statusMsg}</div>`;
-    })
-    .catch(error => {
-      form.innerHTML = `<div class="form--error">Error: ${error}</div>`;
-    })
+    if (isValid) {
+      const formData = new FormData(form);
+      formData.append('form-name', 'newsletter');
+      const obj = {}; formData.forEach((value, key) => {obj[key] = value});
+      const data = JSON.stringify(obj);
+
+      //console.log('This is the data submitted:', data);
+      fetch('/.netlify/functions/usebuttondown', {
+        method: 'POST',
+        body: data,
+        headers: {
+          'Content-Type': 'application/json;charset=UTF-8',
+          'Accept': 'application/json;charset=UTF-8',
+        },
+      })
+      .then(response => response.json())
+      // .then(response => response.text())
+      // .then(text => console.log(`This is the response: ${text}`))
+      .then(data => {
+        //console.log('This is the data received:', data);
+        form.innerHTML = `<div class="form--success">${data.statusMsg}</div>`;
+      })
+      .catch(error => {
+        form.innerHTML = `<div class="form--error">Error: ${error}</div>`;
+      })
+    } else {
+      form.innerHTML = '<div class="form--success">Bot-field error.</div>';
+    }
   }
 
   render() {
     return (
-      <form className="position-relative" id="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
+      <form className="position-relative" id="newsletter-form" name="newsletter" method="POST" onSubmit={this.handleSubmit}>
         <div hidden aria-hidden="true">
           <label>
             Don’t fill this out if you're human: 
