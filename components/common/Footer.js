@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => (
 
-  <footer className="pt-5 bg-gray100">
+  <footer className="footerfoot pt-5 bg-gray100">
     <div className="custom-container mb-5 pb-5 pt-5">
       <div className="row d-flex align-items-center justify-content-center">
         {/*<div className="col-12 col-sm-6 col-md-4">
@@ -30,7 +30,17 @@ const Footer = () => (
             </div>
           </div>
         </div>*/}
-        <div className="col-12 col-md-4">
+        <div className="col-12 col-md-6">
+          <p className="font-family-secondary font-size-display1 mb-3">
+            Contact me
+          </p>
+          <div className="d-flex font-color-medium mb-5 pb-3 pb-md-0 mb-md-0">
+            <div className="pr-5">
+               <a href="mailto:&#101;&#118;&#097;&#110;&#100;&#101;&#114;&#064;&#101;&#118;&#097;&#110;&#100;&#101;&#114;&#105;&#110;&#100;&#117;&#115;&#116;&#114;&#105;&#101;&#115;&#046;&#099;&#111;&#109;" className="font-color-black font-size-subheader text-uppercase" title="Send an e-mail">&#101;&#118;&#097;&#110;&#100;&#101;&#114;&#064;<span className="email-linetwo">&#101;&#118;&#097;&#110;&#100;&#101;&#114;&#105;&#110;&#100;&#117;&#115;&#116;&#114;&#105;&#101;&#115;&#046;&#099;&#111;&#109;</span></a>
+            </div>
+          </div>
+        </div>
+        <div className="col-12 col-md-6">
           <p className="font-family-secondary font-size-display1 mb-3">
             Newsletter
           </p>

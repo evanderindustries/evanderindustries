@@ -1,0 +1,10 @@
+@media (min-width: #{$md-width}) and (max-width: #{$xl-width}) {
+	footer.footerfoot {
+		.email-linetwo {
+			&:before {
+			   content: "\A";
+			   white-space: pre;
+			 }
+		}
+	}
+}
