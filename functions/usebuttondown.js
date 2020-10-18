@@ -2,7 +2,7 @@ require('dotenv').config()
 const fetch = require('node-fetch')
 const { EMAIL_TOKEN } = process.env
 exports.handler = async event => {
-  console.log('Handler event received:', event)
+  //console.log('Handler event received:', event)
   let body = event.body;
   // if (event.isBase64Encoded) {
   //   body = Buffer.from(event.body, 'base64').toString();
