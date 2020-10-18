@@ -9,7 +9,7 @@ exports.handler = async event => {
     console.log('isBase64Encoded');
   }
   console.log('Decoded body:', body)
-  const email = body.payload.email
+  const email = JSON.parse(body).payload.email
   console.log(`Recieved a submission: ${email}`)
   return fetch('https://api.buttondown.email/v1/subscribers', {
     method: 'POST',
