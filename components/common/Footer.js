@@ -121,85 +121,30 @@ class EmailForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const form = event.target;
-    const data = new FormData(form);
-    data.append('form-name', 'newsletter');
+    const formData = new FormData(form);
+    formData.append('form-name', 'newsletter');
+    const obj = {}; formData.forEach((value, key) => {obj[key] = value});
+    const data = JSON.stringify(obj);
 
-    // const form = new FormData(event.target);
-    // const data = new URLSearchParams(form).toString();
-
-    // const encodedData = new URLSearchParams(data).toString();
-    // console.log(`Data urlencoded: ${encodedData}`)
-    // const testElements = [...form.elements];
-    // console.log('Test elements: '); testElements.forEach(x => console.log(x));
-    // const newElements = testElements.filter((elem) => !!elem.value)
-    // console.log('New elements: '); newElements.forEach(x => console.log(x));
-    // const newData = newElements
-    //   .map(
-    //     (elem) =>
-    //       encodeURIComponent(elem.name) +
-    //       "=" +
-    //       encodeURIComponent(elem.value)
-    //   )
-    //   .join("&");
-    // console.log(`New data: ${newData}`);
-    // const finalData = newData + '&form-name=newsletter'
-    // console.log(`Final data: ${finalData}`);
-    // const newTestData = new URLSearchParams(finalData).toString();
-    // console.log('Data: ')
-    // for (var value of data.values()) {
-    //    console.log(value); 
-    // }
-    console.log('This is the payload submitted:', data.payload);
+    //console.log('This is the data submitted:', data);
     fetch('/.netlify/functions/usebuttondown', {
       method: 'POST',
       body: data,
-      // headers: {
-      //   'Content-Type': 'application/x-www-form-urlencoded'
-      // },
-
-      //body: finalData,
-      // body: newTestData,
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8',
+        'Accept': 'application/json;charset=UTF-8',
+      },
     })
-    // fetch('/', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
-    //     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-    //   },
-    //   body: new URLSearchParams(data).toString()
-    // })
-    // .then(response => response.json())
-    .then(response => response.text())
-    .then(text => console.log(`This is the response: ${text}`))
-    // .then(data => {
-    //   console.log('This is the data:', data);
-    //   let msg
-    //   if (data.submitStatus === 'subscribed') {
-    //     msg = 'This user is already subscribed!'
-    //   } else if (data.submitStatus === 'spammy') {
-    //     msg = 'This address is considered spammy!'
-    //   } else if (data.submitStatus === 'unsubscribed') {
-    //     msg = 'This address is unsubscribed!'
-    //   } else {
-    //     msg = 'Almost there! Check your inbox for a confirmation e-mail.'
-    //   }
-    //   form.innerHTML = `<div class="form--success">${msg}</div>`;
-    // })
-    // .then((function(e){
-    //   const testData = e.json();
-    //   console.log('This is the data:', testData);
-    //   return testData;
-    // }))
-    // .then(result => {
-    //   console.log('This is the result:', result);
-    // })
-    // .then(() => {
-    //   form.innerHTML = `<div class="form--success">${}</div>`;
-    // })
+    .then(response => response.json())
+    // .then(response => response.text())
+    // .then(text => console.log(`This is the response: ${text}`))
+    .then(data => {
+      console.log('This is the data received:', data);
+      form.innerHTML = `<div class="form--success">${data.statusMsg}</div>`;
+    })
     .catch(error => {
       form.innerHTML = `<div class="form--error">Error: ${error}</div>`;
     })
-    // event.preventDefault();
   }
 
   render() {
