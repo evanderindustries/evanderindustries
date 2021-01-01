@@ -424,14 +424,14 @@ class CheckoutPage extends Component {
                 </div>
                 <div className="pt-3 borderbottom border-color-gray400">
                   {(checkout.live ? checkout.live.line_items : []).map((item, index, items) => {
-                    const _item = line_items.find(i => i.id === item.id); // from root checkout token object, not checkout.live, since it includes an image property
+                    const _item = [line_items.find(i => i.id === item.id)]; // from root checkout token object, not checkout.live, since it includes an image property
                     return (
                       <div
                         key={item.id}
                         className="d-flex mb-2"
                       >
                         { (_item && _item.image)
-                          ? (<img className="checkout__line-item-image mr-2" src={_item.image} />)
+                          ? (<img className="checkout__line-item-image mr-2" alt="Product." src={_item.image} />)
                           : ''
                         }
                         <div className="d-flex flex-grow-1">
@@ -439,7 +439,7 @@ class CheckoutPage extends Component {
                             <p className="font-weight-medium">
                               {item.product_name}
                             </p>
-                            <p className="font-color-light">Quantity: {item.quantity}</p>
+                            <p className="font-color-white">Quantity: {item.quantity}</p>
                           </div>
                           <div className="text-right font-weight-semibold">
                             ${item.price.formatted_with_code}
