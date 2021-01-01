@@ -118,7 +118,7 @@ class Cart extends Component {
                   {/* Cart Footer */}
                   <div className="cart-footer">
                     <div className="mb-3 d-flex">
-                      <p className="font-color-light mr-2 font-weight-regular">
+                      <p className="font-color-white mr-2 font-weight-regular">
                         Subtotal:
                       </p>
                       <p>{cart.subtotal.formatted_with_symbol}</p>

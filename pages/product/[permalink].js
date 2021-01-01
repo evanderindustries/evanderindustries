@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import commerce from '../../lib/commerce';
-import { Collapse } from 'react-collapse';
+// import { Collapse } from 'react-collapse';
 import { connect } from 'react-redux';
 import Head from 'next/head';
 import Root from '../../components/common/Root';
 import CarouselImages from '../../components/productAssets/CarouselImages';
 import ProductDetail from '../../components/productAssets/ProductDetail';
-import ClientReview from '../../components/productAssets/ClientReview';
+// import ClientReview from '../../components/productAssets/ClientReview';
 import SuggestedProducts from '../../components/productAssets/SuggestedProducts';
-import ExploreBanner from '../../components/productAssets/ExploreBanner';
+// import ExploreBanner from '../../components/productAssets/ExploreBanner';
 import Footer from '../../components/common/Footer';
 import SocialMedia from '../../components/common/SocialMedia';
 import CategoryList from '../../components/products/CategoryList';
 import reduceProductImages from '../../lib/reduceProductImages';
 
-const detailView = `<p>
-  Slightly textured fabric with tonal geometric design and a bit of shine
-</p>`;
+// const detailView = `<p>
+//   Slightly textured fabric with tonal geometric design and a bit of shine
+// </p>`;
 
 class Product extends Component {
   constructor(props) {
@@ -42,7 +42,7 @@ class Product extends Component {
   }
 
   render() {
-    const { showShipping,showDetails } = this.state;
+    // const { showShipping,showDetails } = this.state;
     const { product } = this.props;
 
     const images = reduceProductImages(product);
@@ -70,6 +70,7 @@ class Product extends Component {
                 <img
                   key={i}
                   src={image}
+                  alt="Product."
                   className="w-100 mb-3 carousel-main-images"
                 />
               ))}
@@ -81,21 +82,24 @@ class Product extends Component {
 
               <ProductDetail product={product} />
 
-              <div
+{/*              <div
                 onClick={this.toggleShipping}
                 className="d-flex cursor-pointer py-3 justify-content-between font-weight-medium"
+              >*/}
+              <div
+                className="d-flex py-3 justify-content-between font-weight-medium"
               >
                 Shipping and returns
-                <img src="/icon/plus.svg" />
+                {/*<img src="/icon/plus.svg" />*/}
               </div>
-              <Collapse isOpened={showShipping}>
+              {/*<Collapse isOpened={showShipping}>*/}
                 <div className="pb-4 font-color-medium">
                   Arrives in 5 to 7 days, returns accepted within 30
                   days. For more information, click here.
                 </div>
-              </Collapse>
-              <div className="h-1 border-bottom border-color-black" />
-              <div
+{/*              </Collapse>
+              <div className="h-1 border-bottom border-color-black" />*/}
+{/*              <div
                 onClick={this.toggleDetails}
                 className="d-flex cursor-pointer py-3 justify-content-between font-weight-medium"
               >
@@ -109,13 +113,13 @@ class Product extends Component {
                     __html: detailView
                   }}
                 />
-              </Collapse>
+              </Collapse>*/}
               <div className="h-1 borderbottom border-color-black" />
             </div>
 
         </div>
       </div>
-      <ClientReview />
+      {/*<ClientReview />*/}
       <SuggestedProducts />
       {/*<ExploreBanner />*/}
       <SocialMedia />
