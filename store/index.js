@@ -15,6 +15,8 @@ import {
   REMOVE_SHIPPING_OPTIONS,
   UPDATE_CHECKOUT_LIVE_OBJECT,
   ABORT_CHECKOUT,
+  SET_CUSTOMER,
+  CLEAR_CUSTOMER,
 } from './actions/actionTypes';
 
 // Declare initial state
@@ -26,7 +28,8 @@ const initialState = {
     shippingOptions: [],
     checkoutTokenObject: {},
   },
-  orderReceipt: {},
+  orderReceipt: null,
+  customer: null,
 };
 
 // Create reducer
@@ -51,6 +54,12 @@ const reducer = (state = initialState, action) => {
     // Check if action dispatched is STORE_PRODUCTS and act on that
     case STORE_PRODUCTS:
       return { ...state, products: action.payload };
+    // Dispatch in App client-side
+    // Check if action dispatched is SET_CUSTOMER and act on that
+    case CLEAR_CUSTOMER:
+      return { ...state, customer: null };
+    case SET_CUSTOMER:
+      return { ...state, customer: action.payload };
     // Dispatch in Product client-side
     // Check if action dispatched is STORE_CART and act on that
     case RETRIEVE_CART_SUCCESS:
@@ -78,7 +87,16 @@ const reducer = (state = initialState, action) => {
       return { ...state, checkout: { ...state.checkout, shippingOptions: [] }};
     // Dispatch in Checkout client-side
     case UPDATE_CHECKOUT_LIVE_OBJECT:
-      return { ...state, checkout: { ...state.checkout, checkoutTokenObject: { ...state.checkout.checkoutTokenObject, live: action.payload }}};
+      return {
+        ...state,
+        checkout: {
+          ...state.checkout,
+          checkoutTokenObject: {
+            ...state.checkout.checkoutTokenObject,
+            live: action.payload
+          },
+        },
+      };
     // Dispatch in Checkout client-side
     case ABORT_CHECKOUT:
       return { ...state, checkout: initialState.checkout };

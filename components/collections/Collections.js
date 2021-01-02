@@ -23,6 +23,10 @@ class Collections extends Component {
 
   handleScroll() {
     const animate = () => {
+      if (!this.page.current) {
+        return;
+      }
+
       const distance =
         this.page.current.getBoundingClientRect().bottom -
         window.innerHeight;
@@ -79,17 +83,15 @@ class Collections extends Component {
             </Link>
           */}
           </div>
-        </div>
-      </div>
-      ))}
-    </>
-    )
+        ))}
+      </>
+    );
   }
 
   /**
-  * Filter products by category
-  */
-   filterProductsByCat(catSlug) {
+   * Filter products by category
+   */
+  filterProductsByCat(catSlug) {
     const { categories, products } = this.props;
 
     const cat = categories.find(category => category.slug === catSlug);
@@ -100,8 +102,8 @@ class Collections extends Component {
   }
 
   /**
-  * Render collections based on categories available in data
-  */
+   * Render collections based on categories available in data
+   */
   renderCollection() {
     const { categories } = this.props;
     const reg = /(<([^>]+)>)/ig;
@@ -170,7 +172,6 @@ class Collections extends Component {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     );

@@ -47,6 +47,7 @@ class Product extends Component {
 
     const images = reduceProductImages(product);
 
+
     return (
       <Root>
         <Head>
@@ -66,14 +67,16 @@ class Product extends Component {
 
           <div className="product-images">
             <div className="flex-grow-1">
-              {images.map((image, i) => (
+              {Array.isArray(images) ? (images.map((image, i) => (
                 <img
                   key={i}
                   src={image}
                   alt="Product."
                   className="w-100 mb-3 carousel-main-images"
                 />
-              ))}
+              ))) : (
+                ''
+              )}
             </div>
           </div>
 
@@ -116,7 +119,6 @@ class Product extends Component {
               </Collapse>*/}
               <div className="h-1 borderbottom border-color-black" />
             </div>
-
         </div>
       </div>
       {/*<ClientReview />*/}
