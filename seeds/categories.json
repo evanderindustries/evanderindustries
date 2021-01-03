@@ -1,21 +1,21 @@
 [
   {
-    "slug": "facial-products",
-    "name": "Facial Products",
+    "slug": "art",
+    "name": "Art",
     "meta": {
-      "image": "/images/collection/1.png"
+      "image": "/images/collection/2.jpg"
     }
   },
   {
-    "slug": "hair-products",
-    "name": "Hair Products",
+    "slug": "ceramics",
+    "name": "Ceramics",
     "meta": {
-      "image": "/images/collection/2.png"
+      "image": "/images/collection/1.jpg"
     }
   },
   {
-    "slug": "body-products",
-    "name": "Body Products",
+    "slug": "apparel",
+    "name": "Apparel",
     "meta": {
       "image": "/images/collection/3.png"
     }

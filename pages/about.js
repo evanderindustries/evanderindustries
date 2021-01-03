@@ -1,10 +1,14 @@
 import React from 'react';
 import Root from '../components/common/Root';
 import SocialMedia from '../components/common/SocialMedia';
+import Head from 'next/head';
 import Footer from '../components/common/Footer';
 
 const About = () => (
   <Root>
+    <Head>
+      <title>About | Evander Industries</title>
+    </Head>
     <div className="about-container">
 
       {/* Row */}

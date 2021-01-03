@@ -66,7 +66,7 @@ class Collections extends Component {
                 {category.name}
               </p>
             </Link>
-            {/*<Link href={`/collection#${category.slug}`}>
+{/*            <Link href={`/collection#${category.slug}`}>
               <div className="mb-5">
                 <div className="d-flex">
                   <p className="mb-2 position-relative cursor-pointer">
@@ -80,8 +80,9 @@ class Collections extends Component {
                   </p>
                 </div>
               </div>
-            </Link>
-          */}
+            </Link>*/}
+              </div>
+            </div>
           </div>
         ))}
       </>
@@ -152,7 +153,7 @@ class Collections extends Component {
     return (
       <div className="py-5 my-5">
         <Head>
-          <title>Collections</title>
+          <title>Products | Evander Industries</title>
         </Head>
         <div className="py-4">
           {/* Sidebar */}

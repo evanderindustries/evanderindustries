@@ -21,7 +21,7 @@ class CategoryBanner extends Component {
               <a className="align-items-center font-color-black flex-column cursor-pointer mb-5">
                 <div>
                   <div className="mb-4 w-100 collection-item-image" style={{
-                    background: `url("/images/collection/3.png") center center/cover`
+                    background: `url('/images/collection/3.png') center center/cover`
                   }}></div>
                   <p className="mb-2 font-size-heading text-center">Apparel</p>
                 </div>
