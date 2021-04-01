@@ -13,14 +13,16 @@
   },
   "dependencies": {
     "@chec/commerce.js": "^2.3.0-beta2",
+    "@octokit/core": "^3.2.4",
     "@stripe/react-stripe-js": "^1.1.2",
     "@stripe/stripe-js": "^1.11.0",
     "@zeit/next-sass": "^1.0.1",
     "body-scroll-lock": "^2.6.4",
+    "caniuse-lite": "^1.0.30001205",
     "dotenv": "^8.2.0",
     "jwt-decode": "^3.1.2",
     "moment": "^2.29.1",
-    "netlify-cli": "^2.69.11",
+    "netlify-cli": "^3.13.10",
     "netlify-plugin-onboarding": "^1.0.0",
     "next": "9.5.5",
     "next-redux-wrapper": "^6.0.0",
@@ -37,7 +39,7 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "swiper": "^5.2.1",
-    "tsutils": "3.17.1",
+    "tsutils": "3.18.0",
     "webpack": "4.44.1"
   },
   "devDependencies": {
