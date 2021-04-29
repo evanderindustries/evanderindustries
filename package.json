@@ -22,11 +22,10 @@
     "dotenv": "^8.2.0",
     "jwt-decode": "^3.1.2",
     "moment": "^2.29.1",
-    "netlify-cli": "^3.13.10",
+    "netlify-cli": "^3.23.3",
     "netlify-plugin-onboarding": "^1.0.0",
     "next": "9.5.5",
     "next-redux-wrapper": "^6.0.0",
-    "node-sass": "^4.13.0",
     "prop-types": "^15.7.2",
     "react": "16.12.0",
     "react-collapse": "^5.0.1",
@@ -38,8 +37,10 @@
     "react-transition-group": "^4.3.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "sass": "^1.32.12",
     "swiper": "^5.2.1",
     "tsutils": "3.18.0",
+    "uuid": "^8.3.2",
     "webpack": "4.44.1"
   },
   "devDependencies": {
