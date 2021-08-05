@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import commerce from '../lib/commerce';
 import { loadStripe } from '@stripe/stripe-js';
 import { setCustomer } from '../store/actions/authenticateActions';
+import 'swiper/components/effect-fade/effect-fade.scss';
 
 class MyApp extends App {
   constructor(props) {

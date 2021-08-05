@@ -31,11 +31,7 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Concert+One&display=block"
             rel="stylesheet"
           />
-          <script src="https://unpkg.com/react-id-swiper@2.4.0/lib/react-id-swiper.min.js"></script>
-          <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css"
-          />
+          <link rel="stylesheet" href="https://unpkg.com/swiper@6.6.2/swiper-bundle.min.css" />
           <meta property="og:title" content="Evander Industries | Fine Art for a Good Cause" />
           <meta property="og:image" content="https://evanderindustries.com/images/marketing_logo.png" />
           <meta property="og:description" content="A storefront for Evander Industries." />
